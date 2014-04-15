@@ -1,7 +1,6 @@
 base:
   '*':
     - common
-    - salt.minion
-  'virt:virtual':
-    - match: grain
-    - is-virtual
+#  'virt:virtual':
+#    - match: grain
+#    - is-virtual

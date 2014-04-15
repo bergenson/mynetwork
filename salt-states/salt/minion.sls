@@ -1,18 +1,25 @@
+
+salt-minion:
+  pkg:
+    - latest
+    {% if grains['os'] == 'Ubuntu' %}
+    - require:
+      -pkgrepo: saltstack-ppa
+    {% endif %}
+  service:
+    - running
+    - require:
+      - pkg: salt-minion
+    - watch:
+      - file: /etc/salt/minion
+
 /etc/salt/minion:
     file:
         - managed
         - source: salt://salt/etc/salt/minion
+        - template: jinja
         - user: root
         - group: root
+        - mode: 644
         - require:
             - pkg: salt-minion
-
-salt-processes-minion:
-    service:
-        - names:
-            - salt-minion
-        - running
-        - require:
-            - pkg: salt-minion
-        - watch:
-            - file: /etc/salt/minion

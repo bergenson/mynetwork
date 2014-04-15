@@ -1,8 +1,9 @@
-# only for ubuntu for now
 basic-packages:
     pkg:
         - installed
         - names:
+            {% if grains['os-family'] == RedHat %]
+            {% elif grains['os-family'] == Debian %}
             - sudo
             - openssh-client
             - openssh-server
@@ -11,3 +12,4 @@ basic-packages:
             - iotop
             - iftop
             - git
+            {% endif %}

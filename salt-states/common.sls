@@ -1,5 +1,5 @@
 include:
   - vim
-  - salt
+  - salt.minion
   - basic.packages
 #  - sudoers
