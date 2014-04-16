@@ -2,14 +2,12 @@
 salt-minion:
   pkg:
     - latest
-    {% if grains['os'] == 'Ubuntu' %}
-    - require:
-      -pkgrepo: saltstack-ppa
-    {% endif %}
+#    {% if grains['os'] == 'Ubuntu' %}
+#    - require:
+#      - pkgrepo: saltstack-ppa
+#    {% endif %}
   service:
     - running
-    - require:
-      - pkg: salt-minion
     - watch:
       - file: /etc/salt/minion
 
