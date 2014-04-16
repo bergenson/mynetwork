@@ -1,18 +1,14 @@
-/etc/salt/master:
-    file:
-        - managed
-        - source: salt://salt/etc/salt/master
-        - user: root
-        - group: root
-        - require:
-            - pkg: salt-master
+{% from "salt/package-map.jinja" import pkgs with context %}
 
-salt-processes-master:
-    service:
-        - names:
-            - salt-master
-        - running
-        - require:
-            - pkg: salt-master
-        - watch:
-            - file: /etc/salt/master
+salt-master:
+  pkg.installed:
+    - name: {{ pkgs['salt-master'] }}
+  file.managed:
+    - name: /etc/salt/master
+    - template: jinja
+    - source: salt://salt/files/master
+  service.running:
+    - enable: True
+    - watch:
+      - pkg: salt-master
+      - file: salt-master
