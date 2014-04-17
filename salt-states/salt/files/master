@@ -281,6 +281,7 @@
 # the output will be shortened to a single line.  If set to 'mixed', the output
 # will be terse unless a state failed, in which case that output will be full.
 #state_output: full
+state_output: changed
 
 
 #####      File Server settings      #####

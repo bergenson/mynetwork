@@ -1,4 +1,4 @@
-{% from "sudoers/package-map.jinja" import pkgs with context %}
+{% from "sudoers/map.jinja" import pkgs with context %}
 
 sudo:
   pkg.installed:
