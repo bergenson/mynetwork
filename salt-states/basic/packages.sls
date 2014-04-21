@@ -1,16 +1,5 @@
+{% from "basic/map.jinja" import map with context %}
 basic-packages:
-    pkg:
-        - installed
-        - names:
-            {% if grains['os_family'] == 'RedHat' %}
-            - tmux
-            {% elif grains['os_family'] == 'Debian' %}
-            - sudo
-            - openssh-client
-            - openssh-server
-            - tmux
-            - htop
-            - iotop
-            - iftop
-            - git
-            {% endif %}
+  pkg:
+    - installed
+    - pkgs: {{ map.pkgs|json }}
