@@ -47,10 +47,15 @@ ________
 
 Selecting Minions
 '''
-salt "*" test.ping	# select all Salt Minions
-salt "web*" test.ping	# select Minions based on their Minion ID
+salt "*" test.ping		# select all Salt Minions
+salt "web*" test.ping		# select Minions based on their Minion ID
 salt -G "os:Debian" test.ping	# select Minions based on Salt Grains (see below)
 '''
+
+Run shell commands
+...
+salt "*" cmd.run "ls -lisa /home"
+...
 
 
 Grains
