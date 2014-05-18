@@ -21,24 +21,11 @@ Key-Management
 ______________
 
 
-Show all registration request
 '''
-salt-key -L
-'''
-
-Accepting all Salt key requests
-'''
-salt-key -A
-'''
-
-Acceoting a specific Salt-key request
-'''
-salt-key -a *minion_id*
-'''
-
-Remove the key of a Salt Minion
-'''
-salt-key -d *minion_id*
+salt-key -L		# show all registration request
+salt-key -A		# accepting all Salt key requests
+salt-key -a *minion_id*	# accepting a specific Salt-key request
+salt-key -d *minion_id*	# remove the key of a Salt Minion
 '''
 
 Run Salt
@@ -62,13 +49,8 @@ Grains
 ______
 
 
-Listing Grains
 '''
-salt '*' grains.ls
-'''
-
-Show Grains data
-'''
-salt '*' grains.items
+salt '*' grains.ls	# listing Grains
+salt '*' grains.items	# show Grains data
 '''
 
