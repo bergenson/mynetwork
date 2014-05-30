@@ -39,6 +39,12 @@ salt "web*" test.ping           # select Minions based on their Minion ID
 salt -G "os:Debian" test.ping   # select Minions based on Salt Grains (see below)
 ```
 
+Running and debugging salt states
+```
+salt '*' state.highstate        # running top.sls on all minions
+salt-call state.highstate -l debug   # examine output of errors on minions
+```
+
 Run shell commands
 ```
 salt "*" cmd.run "ls -lisa /home"
