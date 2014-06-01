@@ -2,8 +2,16 @@
 #  {% if grains['os_family'] == 'RedHat' %}
 #  - epel
 #  {% endif %}
-add_repos:
-  pkg:
-    - mod_repo
-    - name: "ppa:saltstack/salt"
 
+{% if grains['os'] == 'Ubuntu' %}
+ppa_required:
+  pkg.installed:
+    - pkgs:
+      - python-software-properties
+      # bug in 13.10
+      - python-pycurl
+
+ppa_add:
+  pkgrepo.managed:
+    - ppa: saltstack/salt
+{% endif %}
