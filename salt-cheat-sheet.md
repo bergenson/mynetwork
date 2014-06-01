@@ -34,9 +34,14 @@ Run Salt
 
 Selecting Minions
 ```
-salt "*" test.ping              # select all Salt Minions
-salt "web*" test.ping           # select Minions based on their Minion ID
-salt -G "os:Debian" test.ping   # select Minions based on Salt Grains (see below)
+salt "*" pkg.install vim         # install package vim on all minions
+salt "web*" pkg.refresh_db       # update pkg databese on all MinionIDs web*
+salt -G "os:Debian" pkg.upgrade  # dist-upgrade on all where grain os=Debian
+```
+
+Execute specific state modules from an environment
+```
+salt '*' state.sls core,edit.vim dev
 ```
 
 Running and debugging salt states
@@ -58,5 +63,13 @@ Grains
 ```
 salt '*' grains.ls         # listing Grains
 salt '*' grains.items      # show Grains data
+```
+
+Dokumantation
+-------------
+
+See the dokumentation of the state module
+```
+salt '*' sys.doc state
 ```
 
