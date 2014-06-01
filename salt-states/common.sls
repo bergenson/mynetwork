@@ -1,8 +1,8 @@
 include:
-#  - basic.repos
+  - basic.repos
   - vim
   - salt.minion
   - basic.packages
-#  - openssh.client
+  - openssh.client
 #  - sudoers
 #  - basic.upgrades
