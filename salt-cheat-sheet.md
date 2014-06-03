@@ -38,6 +38,8 @@ salt "*" pkg.install vim         # install package vim on all minions
 salt "web*" pkg.refresh_db       # update pkg databese on all MinionIDs web*
 salt -G "os:Debian" pkg.upgrade  # dist-upgrade on all where grain os=Debian
 ```
+Full [list](http://docs.saltstack.com/en/latest/ref/modules/all/index.html) of builtin execution modules
+
 
 Execute specific state modules from an environment
 ```
@@ -49,6 +51,7 @@ Running and debugging salt states
 salt '*' state.highstate        # running top.sls on all minions
 salt-call state.highstate -l debug   # examine output of errors on minions
 ```
+Full [list](http://docs.saltstack.com/en/latest/ref/states/all/index.html) of builtin state modules
 
 Run shell commands
 ```
