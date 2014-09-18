@@ -4,5 +4,5 @@ include:
   - salt.minion
   - basic.packages
   - openssh.client
-#  - sudoers
-#  - basic.upgrades
+  - sudoers
+  - basic.upgrades
